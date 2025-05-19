@@ -101,7 +101,7 @@ Consulta la documentación completa en Swagger.
 3. Ejecuta la aplicación:
    ```bash
    mvn clean install
-   mvn spring-boot:run
+   java -jar target/mi-proyecto-spring-boot-0.0.1-SNAPSHOT.jar
    ```
 4. Accede a Swagger: [http://localhost:8080/swagger-ui.html](http://localhost:8080/swagger-ui.html)
 
