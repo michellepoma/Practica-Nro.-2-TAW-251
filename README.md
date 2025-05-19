@@ -1,42 +1,110 @@
-2025# Proyecto CRUD - Universidad
 
-Este repositorio contiene la base del proyecto Universitario utilizando **Spring Boot**. Cada grupo debe trabajar en su propia rama según las instrucciones del docente.
+# 📚 Sistema de Gestión Universitaria
 
----
+Este proyecto es una API REST desarrollada con **Spring Boot 3.x** que permite gestionar estudiantes, docentes, materias e inscripciones en una universidad. Además, cuenta con autenticación basada en JWT y almacenamiento en caché utilizando Redis.
 
-## 🚀 Objetivo
+## 🚀 Tecnologías Utilizadas
 
-Completar las operaciones requeridas sobre el Proyecto.
+- Java 21
+- Spring Boot 3.2.5
+- Spring Security + JWT
+- Spring Data JPA + Hibernate
+- PostgreSQL
+- Redis (Caché)
+- Swagger OpenAPI (Documentación de API)
+- Lombok
+- Maven
 
-**Grupos y ramas asignadas**
+## 📂 Estructura del Proyecto
 
-|**Grupo**|**Ramaogiana**|**Integrantes**|
-| :-: | :-: | :-: |
-|01|grupo-01-springb|[Enrique Rafael Fernández Chiri, Nohemy Ruth Mamani Apaza, Samantha Rousse Gironda Mina, Josué Misael López Huanca, Luz Belén Chávez Patzi, Oscar Joel Choque Flores, Cristhian Pablo Álvarez Guarachi]|
-|02|grupo-02-springb|[Maya Cádiz, Leandro Chávez, Masiel Chirinos, Sergio Luque, Jordy Miranda, Saúl Sánchez, Elizabeth Suzaño]|
-|03|grupo-03-springb|[Bautista Mollo Denzel Guden, Copa Quispe Esther Sara, Guarachi Arguata Alberth, Reyes Barja Carlos Eduardo, Rojas Condoria Fidel Angel, Tancara Suñagua Joel Hernan.]|
-|04|grupo-04-springb|[Marcelo Alejandro Villarroel Gutiérrez, Jonathan Gerson Gutiérrez Condori, Betzabe Gutiérrez Morales, Mikaela Belén Córdova Vásquez, Jhessica Coral Villca Palma, Karen Rocio Catari Calderón, Abigail Blanca Mamani Mamani]|
-|05|grupo-05-springb|["Diana Cecilia Flores Chacón, Juan Sebastián Camacho Fernández, Andrés Wiliam Galarza Salguero, Harold Ruddy Quispe Hilari, José Alejandro Díaz Ali, Michelle Ruth Poma Ramos, Daron Augusto Baldiviezo Aillon"]|
-|06|grupo-06-springb|[José Aruquipa, Miguel Calderón, Herlan Callisaya, Oscar Luján, Edith Marca, Luz Tinta, Daniel Zeballos]|
-|07|grupo-07-springb|[Lenz Abad Alanoca Ojeda,Juan Vidal Mamani Riveros,Herlan Choque Flores,Lorgio Emilio Chura Carrillo,Jesús Alejandro Cruz,Juan Carlos Limachi Maydana]|
-|08|grupo-08-springb|[Amílcar Josías Yujra Chipana, Luis Alfredo Quispe Ortiz, Alan Sergio Yupanqui Corini, Yehonatan Oscar Limachi Corina, Melany Abril Mamani Chamizo, Limbert Mamani Quiñajo, Ronald Choque Sillo]|
-|09|grupo-09-springb|[Bautista Coaquira Jose Abraham, Laura Rios Lizbeth Fabiola, Penélope Gema Copana Fuentes, Sasha Johannes konrad Arana Ramirez, Callisaya Vargas Marco Ronaldo, Callisaya Lanes Shelly Anahi, Choque Gutiérrez Manuel Alejandro, Elías Daniel Beltrán Selaez]|
-|10|grupo-10-springb|[María Teresa Aspiazu Sánchez, Jesús Abed Herrera Sirpa, Joel Alejandro Pérez Murillo, Ariadne Checcid Quiroz Coila, Brandom Jhoseff Amezaga Garrido Cael Mathew Cuevas Alconini, José Alfredo Choque Choque]|
-|11|grupo-11-springb|[Israel Andrés Quenta Pomacusi, Edson Javier Mamani Ticona,Jhamil Elías Mamani Colque,Alexander Nataniel Castillo Centellas,Adrián Marcelo Requena Oros,Maritza Zárate Paco ,Jhoel Alexander Chipana Paye]|
-|12|grupo-12-springb|[Víctor Bernardo Quispe Rojas,Gabriel Omar Cumara Patty,Cristian William Bautista Villcacuti,Rosa Katerine Gonzales Choque,Alvin Angel Magne Aruquipa,Blanca Nataly Chipana Orellana,Ronald Mendoza Caspa,José Julián Quinteros Mollinedo]|
-|13|grupo-13-springb|[Quispe Adriana, Carvajal Ester, Tirado Nayheli, Canaviri Carlos, Loza Humberto, Mamani Sarahi, Ticona Alex]|
-|14|grupo-14-springb|[Gutiérrez Challapa Daniel Rodrigo, Hidalgo Colque Ariana Daniela,Huanca Tito José Manuel,Mamani Mamani Mirko Sony,Quecaño Uruña Erika,Quiñajo Berrios Melina Viana]|
-|15|grupo-15-springb|[Julio Picavia Saravia, Carlos Callisaya Rosas, Iver Mamani, Amiel Natanieli Méndez Vargas, Adriana Valeria Fernández Flores, Luz Edely Aruquipa Ururi]|
-|16|Grupo-16-springb|[Miranda Aguirre Carlos Manuel, Tapia Cortez Genesis Jalid, Aarón Oswaldo Nina Calzada, Lucas Calderon, David Mamani, Rudy Ibarra, Julio Cesar Ticona, José Alejandro Fernández Sánchez ]|
+```
+mi-proyecto-spring-boot/
+├── src/
+│   └── main/
+│       └── java/com/universidad/
+│           ├── controller/        # Controladores REST (API Endpoints)
+│           ├── dto/               # Clases DTO (Data Transfer Objects)
+│           ├── model/             # Entidades JPA (Mapeo a la BD)
+│           ├── registro/          # Lógica de registro de usuarios y autenticación
+│           ├── repository/        # Interfaces de acceso a datos (JPA Repositories)
+│           ├── service/           # Lógica de negocio (Servicios)
+│           ├── validation/        # Validaciones personalizadas y utilidades
+│           └── UniversidadApplication.java  # Clase principal (Entry Point de Spring Boot)
+│
+├── src/main/resources/            # Configuraciones y recursos estáticos
+│   └── application.properties     # Configuración de la aplicación
+│
+├── backup_universidad.sql         # Script de respaldo de la base de datos
+├── manualTecnico.pdf                          # Documentación del proyecto
+│
+└── pom.xml                        # Configuración de dependencias Maven
+```
 
+## ⚙️ Configuración de la Aplicación
 
+Configura el archivo `application.properties`:
 
+```properties
+spring.datasource.url=jdbc:postgresql://localhost:5432/universidad
+spring.datasource.username=postgres
+spring.datasource.password=123456
+spring.jpa.hibernate.ddl-auto=update
 
----
+springdoc.swagger-ui.path=/swagger-ui.html
 
+spring.cache.type=redis
+spring.redis.host=localhost
+spring.redis.port=6379
 
-## 📦 Cómo trabajar en tu rama
+app.jwtSecret=K8jd73ms82xhsOq9zP1lMf7Ks92xLQ8sdjf93KslWpa9BvnsPQ7Ks82lZlxMf9Lp
+app.jwtExpirationMs=86400000
+```
+
+## 🛡️ Seguridad
+
+- Roles definidos: `ADMIN`, `DOCENTE`, `ESTUDIANTE`
+- Autenticación vía JWT
+- Acceso a Swagger UI: `http://localhost:8080/swagger-ui.html`
+
+## 📖 Endpoints Principales
+
+Consulta la documentación completa en Swagger.
+
+### 🔹 Materias
+- `GET /api/materias` – Consultar materias
+- `POST /api/materias` – Crear materia
+- `PUT /api/materias/{id}` – Actualizar materia
+- `DELETE /api/materias/{id}` – Eliminar materia
+
+### 🔹 Estudiantes
+- `GET /api/estudiantes` – Consultar estudiantes
+- `POST /api/estudiantes` – Crear estudiante
+- `PUT /api/estudiantes/{id}` – Actualizar estudiante
+
+### 🔹 Inscripciones
+- `GET /api/inscripciones` – Consultar inscripciones
+- `POST /api/inscripciones` – Crear inscripción
+- `PUT /api/inscripciones/{id}/abandonar` – Abandonar inscripción
+
+### 🔹 Autenticación
+- `POST /api/auth/signup` – Crear usuario
+- `POST /api/auth/login` – Iniciar sesión
+- `POST /api/auth/logout` – Cerrar sesión
+
+## 📦 Instalación y Ejecución
 
 1. Clona el repositorio:
-```bash
-git clone https://github.com/LiaRos-ai/RegistroUniversitario.git
+   ```bash
+   git clone https://github.com/michellepoma/Practica-Nro.-2-TAW-251.git
+   ```
+2. Configura la base de datos en `application.properties`.
+3. Ejecuta la aplicación:
+   ```bash
+   mvn clean install
+   mvn spring-boot:run
+   ```
+4. Accede a Swagger: [http://localhost:8080/swagger-ui.html](http://localhost:8080/swagger-ui.html)
+
+## ✍️ Autor
+
+- Michelle Poma - Sistema de Gestión Universitaria - Version Practica Nro. 2
