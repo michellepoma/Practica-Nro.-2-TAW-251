@@ -46,8 +46,8 @@ Configura el archivo `application.properties`:
 
 ```properties
 spring.datasource.url=jdbc:postgresql://localhost:5432/universidad
-spring.datasource.username=postgres
-spring.datasource.password=123456
+spring.datasource.username=tu_nombre_de_usuario
+spring.datasource.password=tu_contraseña
 spring.jpa.hibernate.ddl-auto=update
 
 springdoc.swagger-ui.path=/swagger-ui.html
@@ -105,6 +105,6 @@ Consulta la documentación completa en Swagger.
    ```
 4. Accede a Swagger: [http://localhost:8080/swagger-ui.html](http://localhost:8080/swagger-ui.html)
 
-## ✍️ Autor
+## ✍️ Estudiante
 
 - Michelle Poma - Sistema de Gestión Universitaria - Version Practica Nro. 2
